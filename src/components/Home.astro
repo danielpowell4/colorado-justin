@@ -48,7 +48,7 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
       --blue: #0054ff;
       --red: #ec1845;
       --grey: #786c68;
-      --white: #fcecd3;
+      --background: #fcecd3;
     }
     
     #background {
@@ -58,12 +58,11 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
       width: 100%;
       height: 100%;
       z-index: -1;
-      /* filter: blur(100px); */
     }
 
     body {
       font-family: Arial Black, Arial, Helvetica, sans-serif;
-      background-color: #f1e2c7;
+      background-color: var(--background);
       color: var(--grey);
       margin: 0;
       font-size: 1rem;
@@ -128,7 +127,7 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
 
     a:hover {
       background-color: var(--blue);
-      color: var(--white);
+      color: var(--background);
       text-decoration: none;
     }
 

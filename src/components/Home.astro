@@ -20,7 +20,7 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
         <li class="links audio-player">
           <span>Mandy Connell Theme Song: </span>
           <br />
-          <audio controls>
+          <audio controls preload="auto">
             <source src={mandySong} type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
@@ -62,7 +62,7 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: Arial Black, Arial, Helvetica, sans-serif;
       background-color: #f1e2c7;
       color: var(--grey);
       margin: 0;
@@ -90,10 +90,10 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
     }
 
     .title {
+      font-family: Arbutus, Arial Black, Arial, Helvetica, sans-serif;
       font-size: 56px;
       color: var(--red);
       font-weight: bold;
-      text-transform: uppercase;
       margin-bottom: 1.5rem;
       position: relative;
       left: -100%;
@@ -177,17 +177,17 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
 
     @media screen and (min-width: 1080px) {
       .title {
-        font-size: 112px;
+        font-size: 108px;
       }
 
       body {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
       }
 
       .links-collection {
         flex-direction: row;
         gap: 2rem;
-        max-height: 100px;
+        max-height: 90px;
         margin: 0 2rem;
         overflow: visible;
       }

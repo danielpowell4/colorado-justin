@@ -10,14 +10,14 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
     <main>
       <div class="title">Colorado Justin</div>
 
-      <ul class="links-collection">
-        <li class="links contact-collab">
+      <div class="links-collection">
+        <div class="links contact-collab">
           <span>Contact / Collaborate: </span>
           <br />
           <a href="mailto:justin@coloradojustin.com">justin@coloradojustin.com</a>
-        </li>
+        </div>
     
-        <li class="links audio-player">
+        <div class="links audio-player">
           <span>Mandy Connell Theme Song: </span>
           <br />
           <audio controls preload="auto">
@@ -26,14 +26,14 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
           </audio>
           <br />
           <a href={mandySong} download>Free Download</a>
-        </li>
+        </div>
     
         <div class="links instagram">
           <span>Instagram: </span>
           <br />
           <a href="https://www.instagram.com/justinfromcolorado" target="_blank">@justinfromcolorado</a>
         </div>
-      </ul>
+      </div>
   
       <div class="illustration">
         <img src={illustration.src} alt="Justin sitting on a cow fence with a guitar and his dog. Tetons in the background." />
@@ -78,14 +78,6 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
     .container {
       text-align: center;
       padding: 2rem 0;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin-block-start: 0;
-      margin-block-end: 0;
-      padding-inline-start: 0;
     }
 
     .title {

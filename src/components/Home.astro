@@ -93,16 +93,7 @@ import NewsletterForm from './NewsletterForm.astro';
       margin-bottom: 1.5rem;
       position: relative;
       left: -100%;
-      animation: slideIn 1.5s ease-out forwards;
-    }
-
-    @keyframes slideIn {
-      from {
-        left: -100%;
-      }
-      to {
-        left: 0;
-      }
+      animation: slideInLeft 1.5s ease-out forwards;
     }
 
     .links-collection {
@@ -165,6 +156,10 @@ import NewsletterForm from './NewsletterForm.astro';
     }
 
     @media screen and (min-width: 960px) {
+      .illustration {
+        min-height: 543px; /* helps to prevent snap */
+      }
+
       .illustration img {
         width: 100%;
         left: 0;
@@ -197,6 +192,21 @@ import NewsletterForm from './NewsletterForm.astro';
       }
       .instagram {
         order: 3;
+      }
+    }
+
+    @media (prefers-reduced-motion) {
+      .title {
+        animation: none;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        left: -100%;
+      }
+      to {
+        left: 0;
       }
     }
   </style>

@@ -1,7 +1,9 @@
 ---
-import illustration from '../assets/Illustration_Vector2.svg';
+import illustration from '../assets/justin-dog-mountains.svg';
 import paperBackground from '../assets/paper-background.jpeg';
 import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
+
+import NewsletterForm from './NewsletterForm.astro';
 ---
 
 <div class="container">
@@ -40,7 +42,10 @@ import mandySong from '../assets/MandyConnell-Theme_COUNTRY.mp3';
       </div>
   </main>
 
-  <footer>&copy; 2025 Justin Renaud. All rights reserved.</footer>
+  <footer>
+    <NewsletterForm />  
+    <span>&copy; 2025 Justin Renaud. All rights reserved.</span>
+  </footer>
 </div>
 
 <style>

@@ -1,0 +1,102 @@
+<form id="newsletter-form" class="newsletter-form">
+    <label for="email">
+        Sign up for email updates (live shows / new music)
+    </label>
+    <input type="email" id="email" name="email" autocomplete="email" required placeholder="sign-me@up.com"/>
+    
+    <button type="submit">Submit</button>
+</form>
+
+<style>
+    .newsletter-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .newsletter-form label {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: normal;
+        color: var(--blue);
+        text-decoration: underline;
+    }
+
+    .newsletter-form input {
+        padding: 0.5rem;
+    }
+
+    .newsletter-form button {
+        padding: 0.5rem 1rem;
+        border: none;
+        background-color: transparent;
+        text-transform: uppercase;
+        border: 2px solid var(--red);
+        font-weight: bold;
+        color: var(--red);
+        cursor: pointer;
+    }
+
+    .newsletter-form button:disabled {
+        cursor: not-allowed;
+    }
+</style>
+
+
+<script>
+    const newsletterFormId = "newsletter-form";
+
+    async function submit(event) {
+        event.preventDefault();
+
+        // disable btn
+        const submitBtn = event.target.querySelector("button");
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting...";
+        }
+
+        // clear any previous error messages
+        const errorMessageId = "newsletter-email-msg";
+        let errorMessageElement = document.getElementById(errorMessageId);
+        if (errorMessageElement) errorMessageElement.remove();
+
+        try {
+            const formData = new FormData(event.target);
+            const response = await fetch("/api/newsletter", {
+                method: "POST",
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to submit. Please try again.");
+            }
+
+            // Replace the form with the success message
+            const newsletterForm = document.getElementById("newsletter-form");
+            if (newsletterForm) newsletterForm.innerHTML = `<p>BLESS YOUR HEART. YA'LL COME BACK NOW!</p>`;
+        } catch (error) {
+            console.error("Error:", error);
+
+            // Add the error message
+            errorMessageElement = document.createElement("p");
+            errorMessageElement.id = errorMessageId;
+            errorMessageElement.style.color = "var(--red)";
+            const errorMsg = error instanceof Error ? error.message : "Unknown error. Please try again.";
+            errorMessageElement.textContent = errorMsg;
+
+            if (submitBtn) {
+                // add error 
+                submitBtn.insertAdjacentElement('afterend', errorMessageElement);
+                // re-enable btn
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Submit";
+            } 
+        }
+    }
+
+    const form = document.getElementById(newsletterFormId);
+    if (form) form.addEventListener("submit", submit);
+</script>
+
